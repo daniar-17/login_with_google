@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Sign In | Mie Sedap</title>
+    <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -74,7 +74,7 @@
                                                 <h5 class="fs-13 mb-4 title">Sign In with</h5>
                                             </div>
                                             <div>
-                                                <a href="{{ url('auth/google')}}">
+                                                <a href="{{ url('auth/redirect')}}">
                                                     <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png">
                                                 </a>
                                             </div>
@@ -112,70 +112,6 @@
 
     <!-- JAVASCRIPT -->
     @include('layouts.js_sign')
-
-    {{-- Process Login --}}
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            //Error Message Function
-            function errMsg(msg){
-                Swal.fire({
-                    icon: 'error',
-                    title: msg,
-                })
-            }
-
-            //Success Message Function
-            function successMsg(msg){
-                Swal.fire({
-                    icon: 'success',
-                    title: msg,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-
-            //Declare Csrf
-            $(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-            });
-
-            //Function to Submit
-            window.formSubmit = function(id){
-                var param = $("#" + id).serialize();
-                var cekEmail = $(".email").val();
-                var cekPassword = $(".password").val();
-                if(cekEmail == "" || cekPassword == ""){
-                    errMsg("Email dan Password Tidak Boleh Kosong !");
-                    return false;
-                }
-                    $.ajax({
-                        type: "POST",
-                        dataType: "json",
-                        data: param,
-                        url: url,
-                        success: function(val) {
-                            if (val["status"] == false) {
-                                errMsg(val['info']);
-                            }else{
-                                successMsg(val['info']);
-                                setTimeout(function() { 
-                                    window.location.replace('dashboard');
-                                }, 1700);
-                            }
-                        },
-                        error: function(val) {
-                            console.log('Error: ', data);
-                        }
-                    });
-                }
-            });
-    </script>
-
 {{-- Last Line --}}
 </body>
 

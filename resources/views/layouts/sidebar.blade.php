@@ -48,6 +48,12 @@
                 <span data-key="t-widgets">User</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link menu-link text-danger btn_logout" style="cursor: pointer">
+                <i class="mdi mdi-logout"></i>
+                <span data-key="t-widgets">Log Out</span>
+              </a>
+            </li>
           </ul>
         </div>
         <!-- Sidebar -->
@@ -56,8 +62,6 @@
       <div class="sidebar-background"></div>
     </div>
     <!-- Left Sidebar End -->
-    <!-- Vertical Overlay-->
-    <div class="vertical-overlay"></div>
 
     @push('addon-script')
       <script type="text/javascript">
@@ -91,6 +95,7 @@
 
           //Action Logout
           $(".btn_logout").click(function(){
+            var url = "{{ route('logout') }}";
             Swal.fire({
                 title: 'Apakah anda akan Log Out?',
                 icon: 'warning',

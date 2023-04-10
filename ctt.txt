@@ -1,0 +1,6 @@
+- https://techsolutionstuff.com/post/laravel-8-socialite-login-with-google-account
+- https://www.sahretech.com/2021/04/cara-membuat-fitur-login-google-di.html
+- Laravel 8
+- Laravel / Jetstream 2.1
+- Laravel / Socialite
+- Because get returns a collection and first returns a single model instance.

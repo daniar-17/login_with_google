@@ -50,26 +50,34 @@
                                     <p class="text-muted">Set Password to continue to Access Website.</p>
                                 </div>
                                 <div class="p-2 mt-4">
-                                    <form action="javascript:formSubmit('login_input')" id="login_input" method="POST">
+                                    <meta name="csrf-token" content="{{ csrf_token() }}" />
+                                    <form action="" method="POST">
                                         @csrf
+                                        <input type="text" class="form-control" id="google_id" name="google_id" value="{{ $user->id }}" hidden>
                                         <div class="mb-3">
-                                            <label class="form-label">Name</label>
-                                            <input type="name" class="form-control name" id="username" name="name" placeholder="Enter Name..">
+                                            <label for="validationCustom01" class="form-label">Name</label>
+                                            <div class="form-icon right">
+                                                <input type="text" class="form-control form-control-icon name" id="name" name="name" placeholder="Enter Name.." value="{{ $user->name }}" required readonly>
+                                                <i class="ri-checkbox-circle-fill text-success fs-22"></i>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Email</label>
-                                            <input type="email" class="form-control email" id="username" name="email" placeholder="Enter Email..">
+                                            <div class="form-icon right">
+                                                <input type="email" class="form-control email" id="email" name="email" placeholder="Enter Email.." value="{{ $user->email }}" required readonly>
+                                                <i class="ri-checkbox-circle-fill text-success fs-22"></i>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input type="password" name="password" class="form-control pe-5 password-input password" placeholder="Enter password" id="password-input">
+                                                <input type="password" name="password" class="form-control pe-5 password-input password" placeholder="Enter password" id="password-input" required autofocus>
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             </div>
                                         </div>
 
                                         <div class="mt-4">
-                                            <button class="btn btn-success w-100" id="btn_test" type="submit">Submit</button>
+                                            <button class="btn btn-success w-100" id="btn_submit" type="button" data-url="{{ route('postlogin') }}">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -137,35 +145,42 @@
             });
 
             //Function to Submit
-            window.formSubmit = function(id){
-                var param = $("#" + id).serialize();
-                var cekEmail = $(".email").val();
-                var cekPassword = $(".password").val();
-                if(cekEmail == "" || cekPassword == ""){
-                    errMsg("Email dan Password Tidak Boleh Kosong !");
+            $("#btn_submit").click(function (){
+                var url = $(this).attr('data-url');
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var password = $("#password-input").val();
+                var google_id = $("#google_id").val();
+                if(password == ""){
+                    errMsg("Password Tidak Boleh Kosong !");
                     return false;
                 }
-                    $.ajax({
-                        type: "POST",
-                        dataType: "json",
-                        data: param,
-                        url: url,
-                        success: function(val) {
-                            if (val["status"] == false) {
-                                errMsg(val['info']);
-                            }else{
-                                successMsg(val['info']);
-                                setTimeout(function() { 
-                                    window.location.replace('dashboard');
-                                }, 1700);
-                            }
-                        },
-                        error: function(val) {
-                            console.log('Error: ', data);
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: url,
+                    data: {
+                        email : email,
+                        name : name,
+                        google_id : google_id,
+                        password : password,
+                    },
+                    success: function(val) {
+                        if (val["status"] == false) {
+                            errMsg(val['info']);
+                        }else{
+                            successMsg(val['info']);
+                            setTimeout(function() { 
+                                window.location = '{{ url('home') }}';
+                            }, 1700);
                         }
-                    });
-                }
+                    },
+                    error: function(val) {
+                        console.log('Error: ', data);
+                    }
+                });
             });
+        });
     </script>
 
 {{-- Last Line --}}

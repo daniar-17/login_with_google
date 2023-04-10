@@ -19,5 +19,55 @@ class LoginController extends Controller
     {
         return view('login.create_password');
     }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            $finduser = User::where('google_id', $user->id)->first();
+            if($finduser){
+                Auth::login($finduser);
+                return view('home');
+            }else{
+                return view('login.create_password', compact('user'));
+            }
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    public function postlogin(Request $request)
+    {
+        try {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'google_id' => $request->google_id,
+                'password' => bcrypt($request->password)
+            ]);
+
+            return response()->json([
+                'status' => true,
+                'email' => $request->email,
+                'info' => 'Register Data Success'
+            ], 201);
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json([
+            'status' => true,
+            'info' => 'Log Out Success'
+        ], 201);
+    }
     //Last Line
 }

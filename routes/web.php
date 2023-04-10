@@ -16,5 +16,6 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/create_password', [LoginController::class, 'create_password'])->name('create_password');
 
 Route::get('home', [HomeController::class, 'index'])->name('home');

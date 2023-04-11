@@ -43,9 +43,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link menu-link" href="">
-                <i class="mdi mdi-account"></i>
-                <span data-key="t-widgets">User</span>
+              <a class="nav-link menu-link" href="{{ url('ongkir') }}">
+                <i class="mdi mdi-truck-fast-outline"></i>
+                <span data-key="t-widgets">Cek Ongkir</span>
               </a>
             </li>
             <li class="nav-item">
@@ -64,8 +64,12 @@
     <!-- Left Sidebar End -->
 
     @push('addon-script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
       <script type="text/javascript">
         $(document).ready(function(){
+
+          $('.js-example-basic-single').select2();
+
           //Error Message Function
           function errMsg(msg){
               Swal.fire({

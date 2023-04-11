@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CekOngkirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/auth/redirect', [LoginController::class, 'redirectToGoogle'])->name
 Route::get('/auth/callback', [LoginController::class, 'handleGoogleCallback'])->name('handleGoogleCallback');
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
+
+Route::get('ongkir', [CekOngkirController::class, 'index'])->name('ongkir');
+Route::get('cekongkir', [CekOngkirController::class, 'cekongkir'])->name('cekongkir');

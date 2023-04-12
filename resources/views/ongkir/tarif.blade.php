@@ -97,5 +97,38 @@
         </form>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header align-items-center d-flex">
+      <h4>Tarif Ongkir</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-nowrap align-middle mb-0">
+        <thead>
+            <tr>
+                <th scope="col">Ekspedisi</th>
+                <th scope="col">Layanan</th>
+                <th scope="col">Estimasi Waktu / Hari</th>
+                <th scope="col">Biaya</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($responseBody2 as $item)
+                @foreach ($item->rajaongkir->results as $itemResult)
+                    @foreach ($itemResult->costs as $itemCosts)
+                        @foreach ($itemCosts->cost as $itemCostIndex )
+                            <tr>
+                                <td><img src="{{asset('assets/images/' .$itemResult->code. '.png')}}" alt="" style="width: 25%;"></td>
+                                <td>{{ $itemCosts->description }}</td>
+                                <td>{{ $itemCostIndex->etd }}</td>
+                                <td>Rp. {{ $itemCostIndex->value }}</td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+                @endforeach
+            @endforeach
+        </tbody>
+    </table>
+    </div>
+  </div>
 @endsection
 

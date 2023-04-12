@@ -27,4 +27,4 @@ Route::get('/auth/callback', [LoginController::class, 'handleGoogleCallback'])->
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('ongkir', [CekOngkirController::class, 'index'])->name('ongkir');
-Route::get('cekongkir', [CekOngkirController::class, 'cekongkir'])->name('cekongkir');
+Route::post('tarifongkir', [CekOngkirController::class, 'tarifongkir'])->name('tarifongkir');

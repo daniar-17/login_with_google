@@ -37,8 +37,11 @@ class CekOngkirController extends Controller
         $responseBody = json_decode($response->getBody());
 
         $weight = $request->weight * 1000;
-        $responseBody2 = $this->cekongkir($request->origin, $request->destination, $weight);
-        return view('ongkir.tarif', compact('responseBody','responseBody2'));
+        $weightOri = $request->weight;
+        $origin = $request->origin;
+        $destination = $request->destination;
+        $responseBody2 = $this->cekongkir($origin, $destination, $weight);
+        return view('ongkir.tarif', compact('responseBody','responseBody2','weightOri','origin','destination'));
     }
 
     public function cekongkir($origin, $destination, $weight)

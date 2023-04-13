@@ -39,7 +39,7 @@
                                 <select class="form-control js-example-basic-single asal" name="origin">
                                     <option value="">Asal Pengiriman</option>
                                     @foreach ( $responseBody->rajaongkir->results as $item )
-                                    <option value="{{ $item->city_id }}">{{ $item->type }}, {{ $item->city_name }}, {{ $item->province }}</option>
+                                    <option value="{{ $item->city_id }}" {{ $item->city_id == $origin ? 'selected' : '' }}>{{ $item->type }} {{ $item->city_name }}, {{ $item->province }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -58,7 +58,7 @@
                                 <select class="form-control js-example-basic-single tujuan" name="destination">
                                     <option value="">Tujuan Pengiriman</option>
                                     @foreach ( $responseBody->rajaongkir->results as $item )
-                                    <option value="{{ $item->city_id }}">{{ $item->type }}, {{ $item->city_name }}, {{ $item->province }}</option>
+                                    <option value="{{ $item->city_id }}" {{ $item->city_id == $destination ? 'selected' : '' }}>{{ $item->type }} {{ $item->city_name }}, {{ $item->province }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="d-flex p-2">
-                                <input type="number" class="form-control" name="weight" id="berat" placeholder="1.00">
+                                <input type="number" class="form-control" name="weight" id="berat" placeholder="1.00" value="{{ $weightOri }}">
                             </div>
                         </div>
                     </div>

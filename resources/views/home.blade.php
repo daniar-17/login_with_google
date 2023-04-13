@@ -31,7 +31,7 @@
                             <p class="fs-16 lh-base">Cek Ongkir lebih mudah dengan 3 pilihan kurir <span class="fw-semibold">JNE, POS dan TIKI</span>, silahkan cek ongkir dengan klik tombol dibawah. <i class="mdi mdi-arrow-down"></i>
                             </p>
                             <div class="mt-3">
-                                <a href="" class="btn btn-primary">Cek Ongkir</a>
+                                <a href="{{ url('ongkir') }}" class="btn btn-primary">Cek Ongkir</a>
                             </div>
                         </div>
                     </div>

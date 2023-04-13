@@ -70,7 +70,7 @@
                         <div class="card-body p-0">
                             <div class="alert alert-primary border-0 rounded-top rounded-0 m-0 d-flex align-items-center" role="alert">
                                 <div class="flex-grow-1 text-truncate">
-                                    <b>Berat</b>.
+                                    <b>Berat/Kg</b>.
                                 </div>
                             </div>
                             <div class="d-flex p-2">

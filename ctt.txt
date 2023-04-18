@@ -11,3 +11,7 @@
 - https://devdojo.com/bobbyiliev/how-to-consume-an-external-api-with-laravel-and-guzzle
 - composer require guzzlehttp/guzzle
 - API Raja Ongkir Starter
+
+
+--------------------------------------------------------------------------------
+- Multiple Row Insert with data (Menu : School)

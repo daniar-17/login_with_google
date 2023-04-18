@@ -49,6 +49,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link menu-link" href="{{ url('school') }}">
+                <i class="mdi mdi-school-outline"></i>
+                <span data-key="t-widgets">School</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link menu-link text-danger btn_logout" style="cursor: pointer">
                 <i class="mdi mdi-logout"></i>
                 <span data-key="t-widgets">Log Out</span>

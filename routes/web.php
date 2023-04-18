@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CekOngkirController;
+use App\Http\Controllers\SchoolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('ongkir', [CekOngkirController::class, 'index'])->name('ongkir');
 Route::post('tarifongkir', [CekOngkirController::class, 'tarifongkir'])->name('tarifongkir');
+
+Route::get('school', [SchoolController::class, 'index'])->name('school');

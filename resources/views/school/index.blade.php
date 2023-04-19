@@ -9,6 +9,10 @@
     </div>
     <!-- end card header -->
 
+    @if ($status == "success")
+        <input type="text" name="status" class="form-control status-info" value="{{ $status }}" data-msg="{{ $msg }}" hidden>
+    @endif
+
     <div class="card-body">
       <div>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -64,6 +68,24 @@
 @push('addon-script')
     <script type="text/javascript">
         $(document).ready(function(){
+
+            //Success Message Function
+            function successMsg(msg){
+                Swal.fire({
+                    icon: 'success',
+                    title: msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+            //Test Message
+            var data = $('.status-info').attr('data-msg');
+            if ($('.status-info').val() == "success") {
+                successMsg(data);
+            } else {
+                successMsg('Failed Bang');
+            }
 
             $(document).on("click", ".nama", function () {
                 var tr = $(this).parent().parent();

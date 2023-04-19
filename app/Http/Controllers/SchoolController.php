@@ -10,6 +10,8 @@ class SchoolController extends Controller
     public function index()
     {
         $data = DB::table('guru')->get();
-        return view('school.index', compact('data'));
+        $status = 'success';
+        $msg = 'Save Successfully';
+        return view('school.index', compact('data','status','msg'));
     }
 }

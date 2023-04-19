@@ -129,6 +129,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     {{-- <script src="{{asset('assets/js/app.js')}}"></script> --}}
     @stack('addon-script')
   </body>

@@ -1,3 +1,4 @@
+# Login With Google
 - https://techsolutionstuff.com/post/laravel-8-socialite-login-with-google-account
 - https://www.sahretech.com/2021/04/cara-membuat-fitur-login-google-di.html
 - Laravel 8
@@ -7,6 +8,7 @@
 
 --------------------------------------------------------------------------------
 
+# Consume Api
 - https://dev.to/kingsconsult/how-to-consume-restful-apis-in-laravel-8-and-laravel-7-4gii
 - https://devdojo.com/bobbyiliev/how-to-consume-an-external-api-with-laravel-and-guzzle
 - composer require guzzlehttp/guzzle
@@ -15,3 +17,12 @@
 
 --------------------------------------------------------------------------------
 - Multiple Row Insert with data (Menu : School)
+
+
+--------------------------------------------------------------------------------
+
+# Generate PDF 
+- composer require barryvdh/laravel-dompdf > Install
+- https://www.positronx.io/laravel-pdf-tutorial-generate-pdf-with-dompdf-in-laravel/
+- https://www.itsolutionstuff.com/post/laravel-8-pdf-laravel-8-generate-pdf-file-using-dompdfexample.html
+- https://www.itsolutionstuff.com/post/laravel-9-pdf-laravel-9-generate-pdf-file-using-dompdfexample.html

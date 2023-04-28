@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title_content','Guru')
+@section('title_content','Data Guru')
 
 @section('content')
   <div class="card">

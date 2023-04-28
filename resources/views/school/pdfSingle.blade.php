@@ -11,12 +11,14 @@
 
     <table class="table table-striped">
         <tr>
+            <th>#</th>
             <th>Nama</th>
             <th>Kota</th>
             <th>Umur</th>
         </tr>
         @foreach($data_guru as $user)
         <tr>
+            <th>{{$loop->iteration}}</th>
             <td>{{ $user->nama }}</td>
             <td>{{ $user->kota }}</td>
             <td>{{ $user->umur }}</td>

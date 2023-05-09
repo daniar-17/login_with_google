@@ -51,7 +51,7 @@
                     <tr>
                         <td colspan="4">
                             <button type="button" class="btn btn-success" style="float: right;" id="btn-save" data-url=""><i class="ri-save-line"></i> Save</button>
-                            <a href="" class="btn btn-light">
+                            <a href="{{ url('school') }}" class="btn btn-light">
                                 <i class="ri-arrow-go-back-line"></i> Back
                             </a>
                         </td>

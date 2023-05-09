@@ -55,6 +55,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link menu-link" href="{{ url('images') }}">
+                <i class="mdi mdi-file-image"></i>
+                <span data-key="t-widgets">Convert Image</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link menu-link text-danger btn_logout" style="cursor: pointer">
                 <i class="mdi mdi-logout"></i>
                 <span data-key="t-widgets">Log Out</span>

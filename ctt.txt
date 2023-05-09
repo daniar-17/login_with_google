@@ -29,3 +29,15 @@
 - https://www.itsolutionstuff.com/post/laravel-9-pdf-laravel-9-generate-pdf-file-using-dompdfexample.html
 - https://stackoverflow.com/questions/60795346/how-to-save-dompdf-file-to-storage-and-name-the-file-dynamicly-in-laravel
 - https://www.itsolutionstuff.com/post/how-to-generate-pdf-and-send-email-in-laravelexample.html
+
+# Create Image and Text to New Generate Image 
+- Add Script to add Canvas : <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+- Gd Library in PHP
+- Canvas to Image
+https://stackoverflow.com/questions/33866383/convert-html-block-to-image-in-laravel
+https://codepen.io/behseini/pen/mddXYqP
+https://fjolt.com/article/html-canvas-save-as-image
+https://stackoverflow.com/questions/54017184/take-screenshot-from-webpage-using-javascript
+
+# Preview Image before Upload 
+https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded

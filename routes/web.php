@@ -34,3 +34,7 @@ Route::get('school', [SchoolController::class, 'index'])->name('school');
 Route::get('school/add', [SchoolController::class, 'add'])->name('school_add');
 Route::get('school/pdf_single', [SchoolController::class, 'pdf_single'])->name('school_pdf_single');
 Route::post('school/pdf_parsing', [SchoolController::class, 'pdf_parsing'])->name('school_pdf_parsing');
+
+Route::get('/images', function () {
+    return view('images.data');
+});

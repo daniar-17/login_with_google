@@ -41,3 +41,4 @@ https://stackoverflow.com/questions/54017184/take-screenshot-from-webpage-using-
 
 # Preview Image before Upload 
 https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+https://stackoverflow.com/questions/6365858/use-jquery-to-get-the-file-inputs-selected-filename-without-the-path

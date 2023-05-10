@@ -79,6 +79,9 @@
             $("#btn-generateImage").click(function(){
                 var titikKoordinat = $(".titikKoordinat").val();
                 var caption = $(".caption").val();
+                var filename = $('input[type=file]').val().split('\\').pop();
+                parts = filename.split(".");
+                filename = parts[0];
                 if(titikKoordinat == "" || caption == ""){
                     errMsg("Caption and Titik Koordinat Cannot Be Empty!")
                     return false;
@@ -91,7 +94,7 @@
                     createEl.href = canvasUrl;
 
                     // This is the name of our downloaded file
-                    createEl.download = "download-this-canvas";
+                    createEl.download = filename;
 
                     // Click the download button, causing a download, and then remove it
                     createEl.click();

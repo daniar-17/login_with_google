@@ -1,3 +1,5 @@
+Password Login : rahasia
+
 # Login With Google
 - https://techsolutionstuff.com/post/laravel-8-socialite-login-with-google-account
 - https://www.sahretech.com/2021/04/cara-membuat-fitur-login-google-di.html

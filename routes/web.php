@@ -20,6 +20,7 @@ use App\Http\Controllers\SchoolController;
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('/create_password', [LoginController::class, 'create_password'])->name('create_password');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+Route::post('/regularlogin', [LoginController::class, 'regularlogin'])->name('regularlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/auth/redirect', [LoginController::class, 'redirectToGoogle'])->name('redirectToGoogle');

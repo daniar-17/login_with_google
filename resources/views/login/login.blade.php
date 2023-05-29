@@ -112,6 +112,68 @@
 
     <!-- JAVASCRIPT -->
     @include('layouts.js_sign')
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //Error Message Function
+            function errMsg(msg){
+                Swal.fire({
+                    icon: 'error',
+                    title: msg,
+                })
+            }
+
+            //Success Message Function
+            function successMsg(msg){
+                Swal.fire({
+                    icon: 'success',
+                    title: msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+            //Declare Csrf
+            $(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            });
+
+            //Function to Submit
+            window.formSubmit = function(id){
+                var param = $("#" + id).serialize();
+                var url = "{{ url('regularlogin') }}";
+                var cekEmail = $(".email").val();
+                var cekPassword = $(".password").val();
+                if(cekEmail == "" || cekPassword == ""){
+                    errMsg("Email dan Password Tidak Boleh Kosong !");
+                    return false;
+                }
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: param,
+                    url: url,
+                    success: function(val) {
+                        if (val["status"] == false) {
+                            errMsg(val['info']);
+                        }else{
+                            successMsg(val['info']);
+                            setTimeout(function() { 
+                                window.location = '{{ url('home') }}';
+                            }, 1700);
+                        }
+                    },
+                    error: function(val) {
+                        console.log('Error: ', data);
+                    }
+                });
+            }
+        });//Last Line
+    </script>
 {{-- Last Line --}}
 </body>
 

@@ -61,6 +61,23 @@ class LoginController extends Controller
         }
     }
 
+    public function regularlogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if(Auth::attempt($credentials)){
+            return response()->json([
+                'status' => true,
+                'info' => 'Sign In Success'
+            ], 201);
+        }else{
+            return response()->json([
+                'status' => false,
+                'info' => 'Email atau Password Tidak Sesuai !'
+            ], 201);
+            return false;
+        }
+    }
+
     public function logout()
     {
         Auth::logout();
